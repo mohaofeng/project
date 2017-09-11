@@ -3,7 +3,7 @@
 #include "SysConfig.h"
 
 
-typedef unsigned char elementType;
+//typedef unsigned char elementType;
 typedef unsigned char BOOL;
 
 
@@ -27,16 +27,16 @@ typedef unsigned char BOOL;
 //}QUEUE,*PQUEUE;
 
 
-typedef unsigned char elementType;
-typedef unsigned char BOOL;
-typedef unsigned int qsize;
+//typedef unsigned char elementType;
+//typedef unsigned char BOOL;
+//typedef unsigned int uint32_t;
 
 typedef struct queue 
 {
-	qsize qlen;
-	elementType front;    //?????????
-	elementType rear;    //????????????????
-	elementType dat[QLEN_MAX]; //???????????
+	uint32_t qlen;
+	uint32_t front;    //?????????
+	uint32_t rear;    //????????????????
+	uint8_t	dat[QLEN_MAX]; //???????????
 }QUEUE,*PQUEUE;
 
 extern QUEUE 	gNetDwDxQueu;										//上位机下传命令缓冲队列
@@ -50,12 +50,12 @@ void TraverseQueue(PQUEUE Q);
 BOOL FullLanQueue(PQUEUE Q);
 BOOL EmptyQueue(PQUEUE Q);
 //void EnQueue(PQUEUE Q,elementType val);
-BOOL EnQueue(PQUEUE Q,elementType val);
-BOOL EnQueuex(PQUEUE Q,elementType *val, qsize n);
-qsize QueueEmptyLen(PQUEUE Q);
-qsize QueueDatLen(PQUEUE Q);
-BOOL DeQueue(PQUEUE Q, elementType *val);
-BOOL DeQueuex(PQUEUE Q,elementType *val, qsize n);
+BOOL EnQueue(PQUEUE Q,uint8_t val);
+BOOL EnQueuex(PQUEUE Q,uint8_t *val, uint32_t n);
+uint32_t QueueEmptyLen(PQUEUE Q);
+uint32_t QueueDatLen(PQUEUE Q);
+BOOL DeQueue(PQUEUE Q, uint8_t *val);
+BOOL DeQueuex(PQUEUE Q,uint8_t *val, uint32_t n);
 void ClearQ(PQUEUE Q);
 #endif
 

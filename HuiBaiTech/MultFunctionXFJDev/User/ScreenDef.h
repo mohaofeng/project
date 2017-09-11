@@ -33,18 +33,16 @@
 #define SHOW_SYSPARM_SCREEN_QUIT_BUTTON_ID 							34  		//退出开关
 #define SHOW_SYSPARM_SCREEN_SET_BUTTON_ID 							44  		//配置开关
 
-/*   配置系统网络参数画面    */
-#define SET_SYSPARM_FOR_NET_SCREEN_ID    									1 	
-
 /*   固定金额消费机界面*/
-#define FIXED_MON_SCREEN_ID    														2  		
+#define FIXED_MON_SCREEN_ID    														1  		
+#define FIXED_MON_SCREEN_CODE_ID													1
 
 /*   可变档位消费机界面 */
-#define STALL_MON_SCREEN_ID    														3  		
+#define STALL_MON_SCREEN_ID    														2  		
 #define BT_STALL_MON_SCREEN_ID 														2  		//档位切换按钮
 
 /*  按键输入消费机界面 */
-#define KEY_INPUT_MON_SCREEN_ID    												4  	
+#define KEY_INPUT_MON_SCREEN_ID    												3  	
 #define KEY_INPUT_MON_SCREEN_TEXT_ID     									1    //文本输入框ID  	
 
 
@@ -52,67 +50,67 @@
 
 
 /*  会员取币界面  */
-#define VIP_QUBI_SCREEN_ID    						5 
+#define VIP_QUBI_SCREEN_ID    						4 
 
 /*  会员存币界面  */
-#define VIP_CUN_SCREEN_ID    						6  
+#define VIP_CUN_SCREEN_ID    						5  
 
 /*  系统返回信息界面  */
-#define SERVER_ACK_IMFOR_SCREEN_ID    				7 
+#define SERVER_ACK_IMFOR_SCREEN_ID    				6 
 
 /*  会员购币界面  */
-#define VIP_GOUBI_SCREEN_ID    						8 
+#define VIP_GOUBI_SCREEN_ID    						7 
 
 /*  会员存取一体机界面  */
-#define VIP_SAVE_SALE_SCREEN_ID    						9
+#define VIP_SAVE_SALE_SCREEN_ID    						8
 
 
 
 /* VIP固定消费模式待机界面  */
-#define IDE_FIXED_MON_SCREEN_ID						10
+#define IDE_FIXED_MON_SCREEN_ID						9
 
 /* 可切换档位待机界面  */
-#define IDE_STALL_MON_SCREEN_ID						11
+#define IDE_STALL_MON_SCREEN_ID						10
 
 /* VIP按键模式待机界面  */
-#define IDE_KEY_INPUT_MON_SCREEN_ID					12
+#define IDE_KEY_INPUT_MON_SCREEN_ID					11
 
 
 /* VIP取币机待机界面  */
-#define IDE_VIP_QUBI_SCREEN_ID						13
+#define IDE_VIP_QUBI_SCREEN_ID						12
 
 /* VIP存币机待机界面  */
-#define IDE_VIP_CUN_SCREEN_ID						14
+#define IDE_VIP_CUN_SCREEN_ID						13
 
 /*  会员购币待机界面 */
-#define IDE_GOUBI_SCREEN_ID    						15 
+#define IDE_GOUBI_SCREEN_ID    						14 
 
 /* VIP存取一体机待机界面  */
-#define IDE_SAVE_SALE_SCREEN_ID						16
+#define IDE_SAVE_SALE_SCREEN_ID						15
 
 /* VIP道闸控制器待机界面  */
-#define IDE_GATE_CTRL_SCREEN_ID						17
+#define IDE_GATE_CTRL_SCREEN_ID						16
 
 /* VIP查询机待机界面  */
-#define IDE_CHECK_SCREEN_ID							18
+#define IDE_CHECK_SCREEN_ID							17
 
 /* 道闸控制界面 */
-#define GATE_CTRL_SCREEN_ID    						19 
+#define GATE_CTRL_SCREEN_ID    						18 
 
 /* 查询机机界面  */
-#define CHECK_SCREEN_ID    							20 
+#define CHECK_SCREEN_ID    							19 
 
 /* VIP未定义待机界面  */
-#define LOGIN_SCREEN_ID						21
+#define LOGIN_SCREEN_ID						20
 
 
 /* VIP未定义待机界面  */
-#define IDE_RESERVER_SCREEN_ID						22
+#define IDE_RESERVER_SCREEN_ID						21
 
 
 
 /* 预留界面  */
-#define RESERVER_SCREEN_ID    						50 
+#define RESERVER_SCREEN_ID    						22 
 
 
 

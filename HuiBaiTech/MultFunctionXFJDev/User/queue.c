@@ -23,7 +23,7 @@ void ClearQ(PQUEUE Q)
 
 void TraverseLanQueue(PQUEUE Q)
 {
-	int i=Q->front;
+	uint32_t i=Q->front;
 	#if QUEUE_DBG
 	printf("队列中的元素是:\r\n");
 	#endif
@@ -90,7 +90,7 @@ Function: Print the stack element;
 // 		return TRUE;
 // 	}
 // }
-BOOL EnQueue(PQUEUE Q,elementType val)
+BOOL EnQueue(PQUEUE Q,uint8_t val)
 {
 	if(Q->front!=(Q->rear+1)%QLEN_MAX)//队列非满
 	{    
@@ -113,9 +113,9 @@ BOOL EnQueue(PQUEUE Q,elementType val)
 /***********************************************
 Function: n个元素入队
 ************************************************/
-BOOL EnQueuex(PQUEUE Q,elementType *val, qsize n)
+BOOL EnQueuex(PQUEUE Q,uint8_t *val, uint32_t n)
 {
-	uint16_t i=0;
+	uint32_t i=0;
 	#if QUEUE_DBG
 	printf("有%d个元素需要入队\r\n",n);
 	#endif			
@@ -147,9 +147,9 @@ BOOL EnQueuex(PQUEUE Q,elementType *val, qsize n)
 /***********************************************
 Function: 队列剩余长度
 ************************************************/
-qsize QueueEmptyLen(PQUEUE Q)
+uint32_t QueueEmptyLen(PQUEUE Q)
 {
-	qsize i;
+	uint32_t i;
 	i= Q->front+QLEN_MAX-Q->rear;
 //	i= QLEN_MAX-Q->qlen;
 	
@@ -163,13 +163,13 @@ qsize QueueEmptyLen(PQUEUE Q)
 /***********************************************
 Function: 队列数据有效长度
 ************************************************/
-qsize QueueDatLen(PQUEUE Q)
+uint32_t QueueDatLen(PQUEUE Q)
 {
 		//printf("队列长度为%d\r\n",i);
 		return (Q->qlen);
 }
 
-BOOL DeQueue(PQUEUE Q, elementType *val)
+BOOL DeQueue(PQUEUE Q, uint8_t *val)
 {
 	if(EmptyLanQueue(Q))
 	{
@@ -189,9 +189,9 @@ BOOL DeQueue(PQUEUE Q, elementType *val)
 /***********************************************
 Function: n个元素出队
 ************************************************/
-BOOL DeQueuex(PQUEUE Q,elementType *val, qsize n)
+BOOL DeQueuex(PQUEUE Q,uint8_t *val, uint32_t n)
 {
-	qsize i;
+	uint32_t i;
 	for(i=0;i<n;i++)
 	{
 		if(DeQueue(Q,&val[i]) == FALSE)

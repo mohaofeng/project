@@ -26,7 +26,7 @@
   */
 void PVD_Config(void)
 {
-  NVIC_InitTypeDef NVIC_InitStructure;
+//  NVIC_InitTypeDef NVIC_InitStructure;
   EXTI_InitTypeDef EXTI_InitStructure;
 
   /*Ê¹ÄÜ PWR Ê±ÖÓ */

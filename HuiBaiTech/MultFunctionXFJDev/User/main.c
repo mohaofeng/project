@@ -40,6 +40,7 @@
 #include "dhcp.h"
 #include <printer.h>
 #include "FramePkg.h"
+#include "common.h"
 
 #include "WT588D.H"
 #include "bsp_led.h"   
@@ -155,7 +156,10 @@ void UpCmd2Cmp(void)
 
 int main(void) 
  { 	
+	char *pc="http://120.25.77.214:8659/WebForm2.aspx";
 	SysInit();
+	memcpy(VipImfor.CodeStr,pc,strlen(pc));
+	
 	LED_Init();
 	lcd_parm.current_screen_id = 255;
 	LCDShowSysParm();	

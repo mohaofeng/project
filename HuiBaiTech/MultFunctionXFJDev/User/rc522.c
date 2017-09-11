@@ -765,10 +765,6 @@ void RC522Task(void)
 				SysVar.icsn_old = SysVar.icsn_new;
 				SysVar.icsn = ((uint32_t)RC522Ctr.SN[0]<<0)+((uint32_t)RC522Ctr.SN[1]<<8)+((uint32_t)RC522Ctr.SN[2]<<16)+((uint32_t)RC522Ctr.SN[3]<<24); 
 				SysVar.icsn_new = SysVar.icsn;
-				sprintf((char*)g_tFlg.pString, "%10u",SysVar.icsn); 
-				replace_char((char*)g_tFlg.VipIDString, (char*)g_tFlg.pString, ' ','0');//Ìî³ä×Ö·û0
-//				DBG_PRINTF("ic stringis:%s\r\n",g_tFlg.VipIDString);  
-				SysVar.GetVipIdFlg = 1;								
 				
 				if(PcdAuthState(KEYA_CHK,IC_KEY_DATA_ADDR,&Config.ICKey[0],&RC522Ctr.SN[0])== MI_OK)
 				{
@@ -783,6 +779,10 @@ void RC522Task(void)
 							}
 							else if(lcd_parm.distype == DIS_IDE_MOD)   
 							{
+								sprintf((char*)g_tFlg.pString, "%10u",SysVar.icsn); 
+								replace_char((char*)g_tFlg.VipIDString, (char*)g_tFlg.pString, ' ','0');//Ìî³ä×Ö·û0
+				//				DBG_PRINTF("ic stringis:%s\r\n",g_tFlg.VipIDString);  
+								SysVar.GetVipIdFlg = 1;								
 								PcdHalt();							
 							}
 							PcdHalt();								

@@ -442,6 +442,26 @@ void ExpSnUpdateGUI(uint8_t *pbuff){
 	}
 }
 
+
+
+void ExpCodeCmd(uint8_t *pbuff){
+	char *pname;
+	uint32_t ucNum=0;
+	uint32_t ucI=0;
+	pname = (char*)pbuff;
+		if(ucNum >0 && ucNum<400)
+		{
+			while(pname[ucI] != 0)
+			{
+				VipImfor.CodeStr[ucI] = pname[ucI];
+				ucI++;
+			}
+		}
+}
+				
+			
+
+
 /*
  *服务器测试打印
  *
@@ -451,7 +471,7 @@ void ExpTestPrintCmd(uint8_t *pbuff)
 {
 //	sprintf((char*)TmpVar.srttmp,"%s\r\n",&pbuff[6]); //把整数转换为字符串
 	printDat("%s\r\n",&pbuff[6]);
-	DBG_PRINTF("测试打印的内容为：%s\r\n",&pbuff[6]);
+	DBG_PRINTF("测试打印的内容为：\r\n%s\r\n",&pbuff[6]);
 	memset(&pbuff[6],0,strlen((char*)&pbuff[6]));
 	//printDat((uint8_t*)TmpVar.srttmp);
 }
@@ -470,7 +490,7 @@ void NetDatExp(void)
 	NetRxbuffLen = queue_find_cmdForCmp(&gNetDwDxQueu,gNetDwCmdBuff,NET_CMD_MAXLEN,NET_CMD_HEAD,NET_CMD_TAIL);//取出一帧命令
 	if(NetRxbuffLen >0)
 	{
-		printf("服务器下传指令：");
+		printf("服务器下传%d数据：",NetRxbuffLen);
 		showdbg8hex(gNetDwCmdBuff,NetRxbuffLen);
 		gNetCtr.LinkGas = LinkGas_CONST;
 		gNetCtr.LinkRetryCnt = 0;
@@ -491,8 +511,8 @@ void NetDatExp(void)
 			case Sn_Login_CMD:
 				ExpLoginCmd(gNetDwCmdBuff);
 				break;
-			case Sn_SETDECMON_CMD:
-				ExpSetCostCmd(gNetDwCmdBuff);
+			case Sn_UPDATE_CODE_CMD:/* 更新二维码指令 */
+				ExpCodeCmd(gNetDwCmdBuff);
 				break;
 			case Sn_LINK_CMD:
 				if(gNetCtr.flg ==0)
@@ -555,7 +575,7 @@ void NetDatExp(void)
 	NetTxbuffLen = queue_find_cmdForUp(&gNetUpCmpQueu,gNetUpCmpCmdBuf,NET_CMD_MAXLEN,NET_CMD_HEAD,NET_CMD_TAIL);
 	if(NetTxbuffLen>0){
 //	 DBG_PRINTF("%s\r\n",gNetUpCmpCmdBuf);
-	printf("验票机上传指令：");
+	printf("验票机上传%d数据：",NetTxbuffLen);
 	showdbg8hex(gNetUpCmpCmdBuf,NetTxbuffLen);
 	gNetCtr.netsta |= TCP_WAIT_TO_SEND;
 	gNetCtr.RxFrameBufLen = NetTxbuffLen;
@@ -917,9 +937,6 @@ void NotifyButton(uint16_t screen_id, uint16_t control_id, uint8_t  state)
 			LCDShowSysParm();
 			SysParmPrint();
 	break;
-/*   配置系统网络参数画面    */
-			case SET_SYSPARM_FOR_NET_SCREEN_ID:
-			break;
 			
 /*   固定金额消费机界面*/
 		case FIXED_MON_SCREEN_ID:
@@ -1234,9 +1251,6 @@ void NotifyText(uint16_t screen_id, uint16_t control_id, uint8_t *str)
 			SysParmPrint();
 			W5500Init();
 	break;
-/*   配置系统网络参数画面    */
-			case SET_SYSPARM_FOR_NET_SCREEN_ID:
-			break;
 			
 /*   固定金额消费机界面*/
 		case FIXED_MON_SCREEN_ID:

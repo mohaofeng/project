@@ -71,7 +71,7 @@ void ExpNetSta(void)
 */
 void do_tcp_client(void)
 {	
-   uint16 len=0;	
+   uint32_t len=0;	
    uint8_t mod=1;
 
 	switch(getSn_SR(SOCK_TCPC))								  				         /*获取socket的状态*/
@@ -109,16 +109,16 @@ void do_tcp_client(void)
 					switch(SysVar.connect_sta)
 					{
 						case 0:
-							DisText(300, 450,mod,SYS_TMP_FONT,"服务器连接中.				          ");
+							DisText(300, 450,mod,SYS_TMP_FONT,"服务器连接中.				            ");
 							SysVar.connect_sta = 1;
 						break;
 						case 1:
 							SysVar.connect_sta = 2;
-							DisText(300, 450,mod,SYS_TMP_FONT,"服务器连接中..				        ");
+							DisText(300, 450,mod,SYS_TMP_FONT,"服务器连接中..				          ");
 						break;
 						case 2:
 							SysVar.connect_sta = 0;
-						DisText(300, 450,mod,SYS_TMP_FONT,"服务器连接中...				          ");
+						DisText(300, 450,mod,SYS_TMP_FONT,"服务器连接中...				            ");
 						break;
 					}
 				}

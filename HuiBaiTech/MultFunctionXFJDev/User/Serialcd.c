@@ -279,6 +279,8 @@ void LCDShowIDEInfo(char *pc)
 			SetScreen(IDE_FIXED_MON_SCREEN_ID);
 			ClearLayer(0);
 			SetScreen(IDE_FIXED_MON_SCREEN_ID);
+			if(strlen(VipImfor.CodeStr) > 0)
+				SetTextValue(IDE_FIXED_MON_SCREEN_ID,FIXED_MON_SCREEN_CODE_ID,(uint8_t *)VipImfor.CodeStr);  
 			
 			break;
 		case RunMod_NORMAL_DANGWEI:

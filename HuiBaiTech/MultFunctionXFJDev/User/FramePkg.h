@@ -68,6 +68,7 @@
 #define Sn_UPDATE_GUI						0x31		//服务器回复余额查询指令
 //#define Sn_ACK_DEC_OK						0x32		//服务器回复扣费成功指令
 #define Sn_TEST_PRINTER					0x32		//服务器回复扣费成功指令
+#define Sn_UPDATE_CODE_CMD			0x34		//服务器更新二维码指令
 
 
 void FrameLogin(void);
@@ -77,10 +78,10 @@ void FrameLink(void);
 void FrameAckConfig(void);
 void AckDXImfor(uint8_t dxid,uint8_t wxid,uint8_t *sn);
 void FrameUpWxConfig(void);
-qsize queue_find_cmdForCmp(PQUEUE Q,elementType *buffer,qsize buf_len,uint8_t head,uint32_t tail);
-qsize queue_find_cmdForCode(PQUEUE Q,elementType *buffer,qsize buf_len,uint8_t head,uint32_t tail);
-qsize queue_find_cmdForTFT(PQUEUE Q,elementType *buffer,qsize buf_len,uint8_t head,uint32_t tail);
-qsize queue_find_cmdForUp(PQUEUE Q,elementType *buffer,qsize buf_len,uint8_t head,uint32_t tail);
+uint32_t queue_find_cmdForCmp(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t head,uint32_t tail);
+uint32_t queue_find_cmdForCode(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t head,uint32_t tail);
+uint32_t queue_find_cmdForTFT(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t head,uint32_t tail);
+uint32_t queue_find_cmdForUp(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t head,uint32_t tail);
 void FrameDecMon(u32 sn,u32 xf,uint32_t id);
 void FrameDecMonEXT(u8 imforlen,u8 *imfor,u32 xf,uint32_t id);
 void FrameApply(u32 sn,uint32_t id);

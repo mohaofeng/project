@@ -5,7 +5,7 @@
 #include "SysConfig.h"
 
 
-#define FRAME_PKG_DBG  0
+#define FRAME_PKG_DBG  1
 
 #if TEST_DBG	
 void CmpAckCheckBalence(uint16_t x,uint16_t y,uint16_t fsize,uint16_t Fcolor,uint16_t dtim,uint16_t Bcolor,uint8_t soundtype,uint8_t coincnt,char *pname)
@@ -373,32 +373,34 @@ void FrameUpDxCoinSum(uint32_t sn,uint32_t cnt)
 
 
 
+//获取队列中有效数据个数
+static uint32_t queue_size(PQUEUE Q)
+{
+	return ((Q->front+QLEN_MAX-Q->rear)%QLEN_MAX);
+}
 
-static u32 Cmpcmd_state=0;  //队列帧尾检测状态
-static qsize Cmpcmd_pos=0;  //当前指令指针位置
+static uint32_t Cmpcmd_state=0;  //队列帧尾检测状态
+static uint32_t Cmpcmd_pos=0;  //当前指令指针位置
 
 ///***********************************************
 //Function: 帧解析上位机下传数据
 //head：帧头
 //帧尾
 //************************************************/
-qsize queue_find_cmdForCmp(PQUEUE Q,elementType *buffer,qsize buf_len,uint8_t head,uint32_t tail)
+uint32_t queue_find_cmdForCmp(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t head,uint32_t tail)
 {
-	qsize cmd_size = 0;
-	elementType _data = 0;
+	uint32_t cmd_size = 0;
+	uint8_t _data = 0;
 	
-//	cmd_size = ;
-	while(QueueDatLen(Q)>0)
+	while(queue_size(Q)>0)
 	{
 		DeQueue(Q,&_data);
-		//showdbg8hex(&_data,1);
-		//printf("0x%x,",_data);
 		if(Cmpcmd_pos==0&&_data!= head)//指令第一个字节必须是帧头，否则跳过
 		{
 #if FRAME_PKG_DBG	
 				printf("无效帧!队列中有  ---%d---- byte数据　\r\n",cmd_size);				
 #endif
-		    return 0;
+		    continue;
 		}
 		if(Cmpcmd_pos<buf_len)//防止缓冲区溢出
 		{
@@ -407,7 +409,6 @@ qsize queue_find_cmdForCmp(PQUEUE Q,elementType *buffer,qsize buf_len,uint8_t he
 		else
 		{
 			Cmpcmd_pos = 0;
-//			cmd_size = 0;
 			Cmpcmd_state = 0;
 			ClearQ(Q);
 			printf("帧溢出");
@@ -424,18 +425,21 @@ qsize queue_find_cmdForCmp(PQUEUE Q,elementType *buffer,qsize buf_len,uint8_t he
 	}
 	return 0;//没有形成完整的一帧
 }
-static u32 Upcmd_state=0;  //队列帧尾检测状态
-static qsize Upcmd_pos=0;  //当前指令指针位置
+
+
+
+static uint32_t Upcmd_state=0;  //队列帧尾检测状态
+static uint32_t Upcmd_pos=0;  //当前指令指针位置
 
 ///***********************************************
 //Function: 帧解析上位机下传数据
 //head：帧头
 //帧尾
 //************************************************/
-qsize queue_find_cmdForUp(PQUEUE Q,elementType *buffer,qsize buf_len,uint8_t head,uint32_t tail)
+uint32_t queue_find_cmdForUp(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t head,uint32_t tail)
 {
-	qsize cmd_size = 0;
-	elementType _data = 0;
+	uint32_t cmd_size = 0;
+	uint8_t _data = 0;
 	
 //	cmd_size = ;
 	while(QueueDatLen(Q)>0)
@@ -478,18 +482,18 @@ qsize queue_find_cmdForUp(PQUEUE Q,elementType *buffer,qsize buf_len,uint8_t hea
 
 
 
-static u32 Codecmd_state=0;  //队列帧尾检测状态
-static qsize Codecmd_pos=0;  //当前指令指针位置
+static uint32_t Codecmd_state=0;  //队列帧尾检测状态
+static uint32_t Codecmd_pos=0;  //当前指令指针位置
 
 ///***********************************************
 //Function: 帧解析
 //head：帧头
 //帧尾
 //************************************************/
-qsize queue_find_cmdForCode(PQUEUE Q,elementType *buffer,qsize buf_len,uint8_t head,uint32_t tail)
+uint32_t queue_find_cmdForCode(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t head,uint32_t tail)
 {
-	qsize cmd_size = 0;
-	elementType _data = 0;
+	uint32_t cmd_size = 0;
+	uint8_t _data = 0;
 	
 //	cmd_size = ;
 	while(QueueDatLen(Q)>0)
@@ -530,17 +534,17 @@ qsize queue_find_cmdForCode(PQUEUE Q,elementType *buffer,qsize buf_len,uint8_t h
 }
 
 static u32 TFTcmd_state=0;  //队列帧尾检测状态
-static qsize TFTcmd_pos=0;  //当前指令指针位置
+static uint32_t TFTcmd_pos=0;  //当前指令指针位置
 
 ///***********************************************
 //Function: 帧解析
 //head：帧头
 //帧尾
 //************************************************/
-qsize queue_find_cmdForTFT(PQUEUE Q,elementType *buffer,qsize buf_len,uint8_t head,uint32_t tail)
+uint32_t queue_find_cmdForTFT(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t head,uint32_t tail)
 {
-	qsize cmd_size = 0;
-	elementType _data = 0;
+	uint32_t cmd_size = 0;
+	uint8_t _data = 0;
 	
 //	cmd_size = ;
 	while(QueueDatLen(Q)>0)

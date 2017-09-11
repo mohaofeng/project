@@ -323,6 +323,7 @@ typedef struct
 	uint8_t 	SerParm;			//预留字
 	char name[400];					//显示内容
 	char IdeShowStr[800];					//显示内容
+	char CodeStr[400];					//显示内容
 }__VipImfor;
 extern __VipImfor VipImfor;
 
