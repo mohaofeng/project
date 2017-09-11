@@ -44,5 +44,4 @@
 ..\..\output\framepkg.o: ..\..\User\exti.h
 ..\..\output\framepkg.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\framepkg.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\framepkg.o: ..\..\User\common.h
 ..\..\output\framepkg.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

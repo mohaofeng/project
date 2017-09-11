@@ -42,5 +42,4 @@
 ..\..\output\printer.o: ..\..\User\exti.h
 ..\..\output\printer.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\printer.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\printer.o: ..\..\User\common.h
 ..\..\output\printer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

@@ -43,5 +43,4 @@
 ..\..\output\queue.o: ..\..\User\exti.h
 ..\..\output\queue.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\queue.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\queue.o: ..\..\User\common.h
 ..\..\output\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

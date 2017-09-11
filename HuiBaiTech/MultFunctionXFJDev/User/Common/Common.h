@@ -19,7 +19,7 @@ void                     USART_printf                       ( USART_TypeDef * US
 
 
 //#define DBG_PRINTF( fmt, ... )	NetPrintf( fmt, ##__VA_ARGS__ )
-#define DBG_PRINTF( fmt, ... )	printf( fmt, ##__VA_ARGS__ )
+#define DBG_PRINTF( fmt, ... )	;//printf( fmt, ##__VA_ARGS__ )
 
 
 

@@ -46,7 +46,6 @@
 ..\..\output\main.o: ..\..\User\exti.h
 ..\..\output\main.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\main.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\main.o: ..\..\User\common.h
 ..\..\output\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\..\output\main.o: ..\..\User\led.h
 ..\..\output\main.o: ..\..\User\CmpDatprocess.h

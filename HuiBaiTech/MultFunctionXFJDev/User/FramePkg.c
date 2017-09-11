@@ -41,7 +41,7 @@ void CmpAckCheckBalence(uint16_t x,uint16_t y,uint16_t fsize,uint16_t Fcolor,uin
 	EnQueue(&gNetDwDxQueu,0xfe);
 	EnQueue(&gNetDwDxQueu,0xfc);
 #if FRAME_PKG_DBG
-	printf("回复卡头扣费命令\r\n");
+	DBG_PRINTF("回复卡头扣费命令\r\n");
 #endif
 }
 
@@ -65,7 +65,7 @@ void CmpTestPrint(char *pname)
 	EnQueue(&gNetDwDxQueu,0xfe);
 	EnQueue(&gNetDwDxQueu,0xfc);
 #if FRAME_PKG_DBG
-	printf("服务器测试打印机命令\r\n");
+	DBG_PRINTF("服务器测试打印机命令\r\n");
 #endif
 }
 
@@ -107,7 +107,7 @@ void FrameRequTest(void)
 	EnQueue(&gNetUpCmpQueu,(uint8_t)(Config.deviceid>>0));//登陆密码
 	CMDTail();
 	#if FRAME_PKG_DBG
-	printf("回复测试指令\r\n");
+	DBG_PRINTF("回复测试指令\r\n");
 	#endif
 }
 
@@ -141,7 +141,7 @@ void RequestDecMon(uint8_t cmdid,uint8_t *vipstring,uint32_t deccnt)
 	EnQueue(&gNetUpCmpQueu,0);
 	CMDTail();
 	#if FRAME_PKG_DBG
-	printf("申请扣费-彩屏\r\n");
+	DBG_PRINTF("申请扣费-彩屏\r\n");
 	#endif
 }
 /***********************************************
@@ -162,7 +162,7 @@ void FrameLogin(void)
 	EnQueue(&gNetUpCmpQueu,Config.runmod);//软件版本
 	CMDTail();
 	#if FRAME_PKG_DBG
-	printf("申请登录\r\n");
+	DBG_PRINTF("申请登录\r\n");
 	#endif
 }
 
@@ -179,7 +179,7 @@ void FrameLink(void)
 	EnQueue(&gNetUpCmpQueu,(uint8_t)(Config.deviceid>>0));//设备id
 	CMDTail();
 	#if FRAME_PKG_DBG
-	printf("发送链路帧\r\n");
+	DBG_PRINTF("发送链路帧\r\n");
 	#endif
 }
 
@@ -234,7 +234,7 @@ void FrameAckConfig(void)
 	
 	CMDTail();
 	#if FRAME_PKG_DBG
-	printf("回复系统配置帧\r\n");
+	DBG_PRINTF("回复系统配置帧\r\n");
 	#endif
 
 }
@@ -257,7 +257,7 @@ void FrameApply(u32 sn,uint32_t id)
 	EnQueue(&gNetUpCmpQueu,(uint8_t)(id>>0));	//??id	
 	CMDTail();
 	#if FRAME_PKG_DBG
-	printf("??????\r\n");
+	DBG_PRINTF("??????\r\n");
 	#endif
 }
 /***********************************************
@@ -281,7 +281,7 @@ void FrameDecMon(u32 sn,u32 xf,uint32_t id)
 	EnQueue(&gNetUpCmpQueu,(uint8_t)(id>>0));	//本机id	
 	CMDTail();
 	#if FRAME_PKG_DBG
-	printf("申请扣费\r\n");
+	DBG_PRINTF("申请扣费\r\n");
 	#endif
 }
 
@@ -308,7 +308,7 @@ void FrameDecMonEXT(u8 imforlen,u8 *imfor,u32 xf,uint32_t id)
 	
 	CMDTail();
 	#if FRAME_PKG_DBG
-	printf("申请扣费\r\n");
+	DBG_PRINTF("申请扣费\r\n");
 	#endif
 }
 /***********************************************
@@ -337,7 +337,7 @@ void FrameResTim(void)
 	EnQueue(&gNetUpCmpQueu,XnREQ_TIM_CMD);
 	CMDTail();
 	#if FRAME_PKG_DBG
-	printf("获取服务器时间\r\n");
+	DBG_PRINTF("获取服务器时间\r\n");
 	#endif
 }
 
@@ -366,7 +366,7 @@ void FrameUpDxCoinSum(uint32_t sn,uint32_t cnt)
 	EnQueue(&gNetUpCmpQueu,0xfe);
 	EnQueue(&gNetUpCmpQueu,0xfc);
 #if FRAME_PKG_DBG
-	printf("????????\r\n");
+	DBG_PRINTF("????????\r\n");
 #endif
 }
 
@@ -398,7 +398,7 @@ uint32_t queue_find_cmdForCmp(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t 
 		if(Cmpcmd_pos==0&&_data!= head)//指令第一个字节必须是帧头，否则跳过
 		{
 #if FRAME_PKG_DBG	
-				printf("无效帧!队列中有  ---%d---- byte数据　\r\n",cmd_size);				
+				DBG_PRINTF("无效帧!队列中有  ---%d---- byte数据　\r\n",cmd_size);				
 #endif
 		    continue;
 		}
@@ -411,7 +411,7 @@ uint32_t queue_find_cmdForCmp(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t 
 			Cmpcmd_pos = 0;
 			Cmpcmd_state = 0;
 			ClearQ(Q);
-			printf("帧溢出");
+			DBG_PRINTF("帧溢出");
 			return 0;
 		}
 		Cmpcmd_state = ((Cmpcmd_state<<8)|_data);//拼接最后4个字节，组成一个32位整数
@@ -446,11 +446,11 @@ uint32_t queue_find_cmdForUp(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t h
 	{
 		DeQueue(Q,&_data);
 		//showdbg8hex(&_data,1);
-		//printf("0x%x,",_data);
+		//DBG_PRINTF("0x%x,",_data);
 		if(Upcmd_pos==0&&_data!= head)//指令第一个字节必须是帧头，否则跳过
 		{
 #if FRAME_PKG_DBG	
-				printf("无效帧!队列中有  ---%d---- byte数据　\r\n",cmd_size);				
+				DBG_PRINTF("无效帧!队列中有  ---%d---- byte数据　\r\n",cmd_size);				
 #endif
 		    return 0;
 		}
@@ -464,7 +464,7 @@ uint32_t queue_find_cmdForUp(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t h
 //			cmd_size = 0;
 			Upcmd_state = 0;
 			ClearQ(Q);
-			printf("帧溢出");
+			DBG_PRINTF("帧溢出");
 			return 0;
 		}
 		Upcmd_state = ((Upcmd_state<<8)|_data);//拼接最后4个字节，组成一个32位整数
@@ -500,11 +500,11 @@ uint32_t queue_find_cmdForCode(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t
 	{
 		DeQueue(Q,&_data);
 		//showdbg8hex(&_data,1);
-		//printf("0x%x,",_data);
+		//DBG_PRINTF("0x%x,",_data);
 		if(Codecmd_pos==0&&_data!= head)//指令第一个字节必须是帧头，否则跳过
 		{
 #if FRAME_PKG_DBG	
-				printf("无效帧!队列中有  ---%d---- byte数据　\r\n",cmd_size);				
+				DBG_PRINTF("无效帧!队列中有  ---%d---- byte数据　\r\n",cmd_size);				
 #endif
 		    return 0;
 		}
@@ -518,7 +518,7 @@ uint32_t queue_find_cmdForCode(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t
 //			cmd_size = 0;
 			Codecmd_state = 0;
 			ClearQ(Q);
-			printf("帧溢出");
+			DBG_PRINTF("帧溢出");
 			return 0;
 		}
 		Codecmd_state = ((Codecmd_state<<8)|_data);//拼接最后4个字节，组成一个32位整数
@@ -551,11 +551,11 @@ uint32_t queue_find_cmdForTFT(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t 
 	{
 		DeQueue(Q,&_data);
 		//showdbg8hex(&_data,1);
-		//printf("0x%x,",_data);
+		//DBG_PRINTF("0x%x,",_data);
 		if(TFTcmd_pos==0&&_data!= head)//指令第一个字节必须是帧头，否则跳过
 		{
 #if FRAME_PKG_DBG	
-				printf("无效帧!队列中有  ---%d---- byte数据　\r\n",cmd_size);				
+				DBG_PRINTF("无效帧!队列中有  ---%d---- byte数据　\r\n",cmd_size);				
 #endif
 		    return 0;
 		}
@@ -569,7 +569,7 @@ uint32_t queue_find_cmdForTFT(PQUEUE Q,uint8_t *buffer,uint32_t buf_len,uint8_t 
 //			cmd_size = 0;
 			TFTcmd_state = 0;
 			ClearQ(Q);
-			printf("帧溢出");
+			DBG_PRINTF("帧溢出");
 			return 0;
 		}
 		TFTcmd_state = ((TFTcmd_state<<8)|_data);//拼接最后4个字节，组成一个32位整数

@@ -43,7 +43,6 @@
 ..\..\output\rc522.o: ..\..\User\exti.h
 ..\..\output\rc522.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\rc522.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\rc522.o: ..\..\User\common.h
 ..\..\output\rc522.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\..\output\rc522.o: ..\..\User\hmi_driver.h
 ..\..\output\rc522.o: ..\..\User\ScreenDef.h

@@ -42,5 +42,4 @@
 ..\..\output\bsp_led.o: ..\..\User\exti.h
 ..\..\output\bsp_led.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\bsp_led.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\bsp_led.o: ..\..\User\common.h
 ..\..\output\bsp_led.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

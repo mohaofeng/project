@@ -8,7 +8,7 @@
 #define  CODE_USARTx                   UART4
 #define  CODE_USART_CLK                RCC_APB1Periph_UART4
 #define  CODE_USART_APBxClkCmd         RCC_APB1PeriphClockCmd
-#define  CODE_USART_BAUDRATE           115200
+#define  CODE_USART_BAUDRATE           9600
 
 // USART GPIO Òý½Åºê¶¨Òå
 #define  CODE_USART_GPIO_CLK             (RCC_APB2Periph_GPIOC)

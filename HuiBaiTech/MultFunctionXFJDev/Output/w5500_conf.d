@@ -46,5 +46,4 @@
 ..\..\output\w5500_conf.o: ..\..\User\exti.h
 ..\..\output\w5500_conf.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\w5500_conf.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\w5500_conf.o: ..\..\User\common.h
 ..\..\output\w5500_conf.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

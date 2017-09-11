@@ -25,3 +25,5 @@
 ..\..\output\w5500.o: ..\..\User\Ethernet\W5500\w5500.h
 ..\..\output\w5500.o: ..\..\User\Ethernet\W5500\Types.h
 ..\..\output\w5500.o: ..\..\User\Ethernet\W5500\socket.h
+..\..\output\w5500.o: ..\..\User\./common/Common.h
+..\..\output\w5500.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

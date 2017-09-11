@@ -209,7 +209,7 @@ uint16 send(SOCKET s, const uint8 * buf, uint16 len)
     status = IINCHIP_READ(Sn_SR(s));
     if ((status != SOCK_ESTABLISHED) && (status != SOCK_CLOSE_WAIT) )
     {
-      printf("SEND_OK Problem!!\r\n");
+      DBG_PRINTF("SEND_OK Problem!!\r\n");
       close(s);
       return 0;
     }
@@ -346,7 +346,7 @@ uint16 recvfrom(SOCKET s, uint8 * buf, uint16 len, uint8 * addr, uint16 *port)
         break;
 
       case Sn_MR_IPRAW :
-//	   	printf("\r\n Sn_MR_IPRAW \r\n");
+//	   	DBG_PRINTF("\r\n Sn_MR_IPRAW \r\n");
         wiz_read_buf(addrbsb, head, 0x06);
 		       
         ptr += 6;
@@ -359,7 +359,7 @@ uint16 recvfrom(SOCKET s, uint8 * buf, uint16 len, uint8 * addr, uint16 *port)
 
         addrbsb  = (uint32)(ptr<<8) +  (s<<5) + 0x18;
 	   
-//		printf(" data£º%d \r\n",data_len);
+//		DBG_PRINTF(" data£º%d \r\n",data_len);
         wiz_read_buf(addrbsb, buf, data_len);
 		 	        
         ptr += data_len;
@@ -370,14 +370,14 @@ uint16 recvfrom(SOCKET s, uint8 * buf, uint16 len, uint8 * addr, uint16 *port)
         break;
 
       case Sn_MR_MACRAW :
-//	 printf("\r\n Sn_MR_MCRAW \r\n");
+//	 DBG_PRINTF("\r\n Sn_MR_MCRAW \r\n");
         wiz_read_buf(addrbsb, head, 0x02);
         ptr+=2;
         data_len = head[0];
         data_len = (data_len<<8) + head[1] - 2;
         if(data_len > 1514)
         {
-           printf("data_len over 1514\r\n");
+           DBG_PRINTF("data_len over 1514\r\n");
            while(1);
         }
 
@@ -474,8 +474,8 @@ uint16 macraw_recv( uint8 * buf, uint16 len )
 
       if(data_len > 1514)
       {
-         printf("data_len over 1514\r\n");
-         printf("\r\nptr: %X, data_len: %X", ptr, data_len);
+         DBG_PRINTF("data_len over 1514\r\n");
+         DBG_PRINTF("\r\nptr: %X, data_len: %X", ptr, data_len);
 
          /** recommand : close and open **/
          close(sock_num); // Close the 0-th socket

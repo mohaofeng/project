@@ -43,6 +43,5 @@
 ..\..\output\stm32f10x_it.o: ..\..\User\exti.h
 ..\..\output\stm32f10x_it.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\stm32f10x_it.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\stm32f10x_it.o: ..\..\User\common.h
 ..\..\output\stm32f10x_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\..\output\stm32f10x_it.o: ..\..\User\queue.h

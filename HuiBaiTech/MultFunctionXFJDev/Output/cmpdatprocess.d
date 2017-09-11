@@ -43,7 +43,6 @@
 ..\..\output\cmpdatprocess.o: ..\..\User\exti.h
 ..\..\output\cmpdatprocess.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\cmpdatprocess.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\cmpdatprocess.o: ..\..\User\common.h
 ..\..\output\cmpdatprocess.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\..\output\cmpdatprocess.o: ..\..\User\cmd_process.h
 ..\..\output\cmpdatprocess.o: ..\..\User\hmi_driver.h

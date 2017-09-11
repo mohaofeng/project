@@ -46,7 +46,6 @@
 ..\..\output\tcp_demo.o: ..\..\User\exti.h
 ..\..\output\tcp_demo.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\tcp_demo.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\tcp_demo.o: ..\..\User\common.h
 ..\..\output\tcp_demo.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\..\output\tcp_demo.o: ..\..\User\queue.h
 ..\..\output\tcp_demo.o: ..\..\User\CmpDatprocess.h

@@ -46,7 +46,7 @@ void set_w5500_ip(void)
 	memcpy(ConfigMsg.gw,gNetCtr.LanGateW,4);
 	memcpy(ConfigMsg.dns,Config.dns,4);
 //	if(ip_from==IP_FROM_DEFINE)	
-//		printf(" 使用定义的IP信息配置W5500\r\n");
+//		DBG_PRINTF(" 使用定义的IP信息配置W5500\r\n");
 //#if 0		
 //	
 //	/*使用EEPROM存储的IP参数*/	
@@ -59,7 +59,7 @@ void set_w5500_ip(void)
 //		/*如果读取EEPROM中MAC信息,如果已配置，则可使用*/		
 //		if( *(EEPROM_MSG.mac)==0x00&& *(EEPROM_MSG.mac+1)==0x08&&*(EEPROM_MSG.mac+2)==0xdc)		
 //		{
-//			printf(" IP from EEPROM\r\n");
+//			DBG_PRINTF(" IP from EEPROM\r\n");
 //			/*复制EEPROM配置信息到配置的结构体变量*/
 //			memcpy(ConfigMsg.lip,EEPROM_MSG.lip, 4);				
 //			memcpy(ConfigMsg.sub,EEPROM_MSG.sub, 4);
@@ -67,7 +67,7 @@ void set_w5500_ip(void)
 //		}
 //		else
 //		{
-//			printf(" EEPROM未配置,使用定义的IP信息配置W5500,并写入EEPROM\r\n");
+//			DBG_PRINTF(" EEPROM未配置,使用定义的IP信息配置W5500,并写入EEPROM\r\n");
 //			write_config_to_eeprom();	/*使用默认的IP信息，并初始化EEPROM中数据*/
 //		}			
 //	}
@@ -78,7 +78,7 @@ void set_w5500_ip(void)
 //		/*复制DHCP获取的配置信息到配置结构体*/
 //		if(dhcp_ok==1)
 //		{
-//			printf(" IP from DHCP\r\n");		 
+//			DBG_PRINTF(" IP from DHCP\r\n");		 
 //			memcpy(Config.Localip,DHCP_GET.lip, 4);
 //			memcpy(Config.Mass,DHCP_GET.sub, 4);
 //			memcpy(Config.GateW,DHCP_GET.gw, 4);
@@ -86,8 +86,8 @@ void set_w5500_ip(void)
 //		}
 //		else
 //		{
-//			printf(" DHCP子程序未运行,或者不成功\r\n");
-//			printf(" 使用定义的IP信息配置W5500\r\n");
+//			DBG_PRINTF(" DHCP子程序未运行,或者不成功\r\n");
+//			DBG_PRINTF(" 使用定义的IP信息配置W5500\r\n");
 //		}
 //	}
 		
@@ -101,11 +101,11 @@ void set_w5500_ip(void)
 	setSIPR(ConfigMsg.lip);
   //memcpy(ConfigMsg.dns,dns_server,4);
 	getSIPR (gNetCtr.LanLocalip);			
-	printf(" W5500 IP地址   : %d.%d.%d.%d\r\n", gNetCtr.LanLocalip[0],gNetCtr.LanLocalip[1],gNetCtr.LanLocalip[2],gNetCtr.LanLocalip[3]);
+	DBG_PRINTF(" W5500 IP地址   : %d.%d.%d.%d\r\n", gNetCtr.LanLocalip[0],gNetCtr.LanLocalip[1],gNetCtr.LanLocalip[2],gNetCtr.LanLocalip[3]);
 	getSUBR(gNetCtr.LanMass);
-	printf(" W5500 子网掩码 : %d.%d.%d.%d\r\n", gNetCtr.LanMass[0],gNetCtr.LanMass[1],gNetCtr.LanMass[2],gNetCtr.LanMass[3]);
+	DBG_PRINTF(" W5500 子网掩码 : %d.%d.%d.%d\r\n", gNetCtr.LanMass[0],gNetCtr.LanMass[1],gNetCtr.LanMass[2],gNetCtr.LanMass[3]);
 	getGAR(gNetCtr.LanGateW);
-	printf(" W5500 网关     : %d.%d.%d.%d\r\n", gNetCtr.LanGateW[0],gNetCtr.LanGateW[1],gNetCtr.LanGateW[2],gNetCtr.LanGateW[3]);
+	DBG_PRINTF(" W5500 网关     : %d.%d.%d.%d\r\n", gNetCtr.LanGateW[0],gNetCtr.LanGateW[1],gNetCtr.LanGateW[2],gNetCtr.LanGateW[3]);
 }
 
 /**
@@ -315,7 +315,7 @@ uint8_t IINCHIP_READ(uint32_t addrbsb)
 uint16_t wiz_write_buf(uint32_t addrbsb,uint8_t* buf,uint16_t len)
 {
    uint16_t idx = 0;
-   if(len == 0) printf("Unexpected2 length 0\r\n");
+   if(len == 0) DBG_PRINTF("Unexpected2 length 0\r\n");
    iinchip_csoff();                               
    IINCHIP_SpiSendData( (addrbsb & 0x00FF0000)>>16);
    IINCHIP_SpiSendData( (addrbsb & 0x0000FF00)>> 8);
@@ -340,7 +340,7 @@ uint16_t wiz_read_buf(uint32_t addrbsb, uint8_t* buf,uint16_t len)
   uint16_t idx = 0;
   if(len == 0)
   {
-    printf("Unexpected2 length 0\r\n");
+    DBG_PRINTF("Unexpected2 length 0\r\n");
   }
   iinchip_csoff();                                
   IINCHIP_SpiSendData( (addrbsb & 0x00FF0000)>>16);
@@ -412,7 +412,7 @@ void reboot(void)
 {
   pFunction Jump_To_Application;
   uint32_t JumpAddress;
-  printf(" 系统重启中……\r\n");
+  DBG_PRINTF(" 系统重启中……\r\n");
   JumpAddress = *(vu32*) (0x00000004);
   Jump_To_Application = (pFunction) JumpAddress;
   Jump_To_Application();

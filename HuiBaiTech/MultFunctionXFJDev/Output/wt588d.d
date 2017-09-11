@@ -43,5 +43,4 @@
 ..\..\output\wt588d.o: ..\..\User\exti.h
 ..\..\output\wt588d.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\wt588d.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\wt588d.o: ..\..\User\common.h
 ..\..\output\wt588d.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

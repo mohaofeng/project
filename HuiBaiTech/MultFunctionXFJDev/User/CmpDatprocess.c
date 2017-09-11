@@ -191,9 +191,9 @@ void ExpSetRunModeCmd(uint8_t *pbuff)
  **/
 void ExpSetNetModeCmd(uint8_t *pbuff)
 {
-	uint32_t tmp;
+	uint32_t tmp= 0;
 	tmp = ((u32)pbuff[2]<<24)+((u32)pbuff[3]<<16)+((u32)pbuff[4]<<8)+((u32)pbuff[5]<<0);
-	if((Config.deviceid == tmp))//检查目标id是否正确
+	if((Config.deviceid == tmp))//检查目标id是否正确 
 	{
 		Config.NetMod = pbuff[6];
 		SysParmWrite();
@@ -322,7 +322,7 @@ void ExpSetWiFiPramCmd(uint8_t *pbuff)
 		}
 		Config.APPassword[i] = 0;
 #if NetDatExp_DBG >0 
-			printf("服务器配置热点名称和密码:%s,%s\r\n",Config.APName,Config.APPassword);
+			DBG_PRINTF("服务器配置热点名称和密码:%s,%s\r\n",Config.APName,Config.APPassword);
 #endif
 		SysParmWrite();
 		SysParmExplain();
@@ -490,7 +490,7 @@ void NetDatExp(void)
 	NetRxbuffLen = queue_find_cmdForCmp(&gNetDwDxQueu,gNetDwCmdBuff,NET_CMD_MAXLEN,NET_CMD_HEAD,NET_CMD_TAIL);//取出一帧命令
 	if(NetRxbuffLen >0)
 	{
-		printf("服务器下传%d数据：",NetRxbuffLen);
+		DBG_PRINTF("服务器下传%d数据：",NetRxbuffLen);
 		showdbg8hex(gNetDwCmdBuff,NetRxbuffLen);
 		gNetCtr.LinkGas = LinkGas_CONST;
 		gNetCtr.LinkRetryCnt = 0;
@@ -575,7 +575,7 @@ void NetDatExp(void)
 	NetTxbuffLen = queue_find_cmdForUp(&gNetUpCmpQueu,gNetUpCmpCmdBuf,NET_CMD_MAXLEN,NET_CMD_HEAD,NET_CMD_TAIL);
 	if(NetTxbuffLen>0){
 //	 DBG_PRINTF("%s\r\n",gNetUpCmpCmdBuf);
-	printf("验票机上传%d数据：",NetTxbuffLen);
+	DBG_PRINTF("验票机上传%d数据：",NetTxbuffLen);
 	showdbg8hex(gNetUpCmpCmdBuf,NetTxbuffLen);
 	gNetCtr.netsta |= TCP_WAIT_TO_SEND;
 	gNetCtr.RxFrameBufLen = NetTxbuffLen;

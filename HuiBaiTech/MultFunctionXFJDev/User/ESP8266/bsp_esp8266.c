@@ -1,5 +1,5 @@
 #include "./ESP8266/bsp_esp8266.h" 
-#include "common.h"
+#include "./common/Common.h"
 #include <stdio.h>  
 #include <string.h>  
 #include <stdbool.h>
@@ -648,21 +648,21 @@ void ESP8266_StaTcpClient_UnvarnishTest ( void )
 	switch(gNetCtr.WiFiStpSta)
 	{
 		case 0:
-			printf ( "\r\n正在配置 ESP8266 ......\r\n" );
+			DBG_PRINTF ( "\r\n正在配置 ESP8266 ......\r\n" );
 			//macESP8266_CH_ENABLE();
 			ESP8266_AT_Test ();
 			
 			ESP8266_Net_Mode_Choose ( STA );
 			while ( ! ESP8266_JoinAP ((char*) Config.APName, (char*) Config.APPassword ) );   
-			printf("wifi连接成功，关闭多连接，开始连接服务器\r\n");
+			DBG_PRINTF("wifi连接成功，关闭多连接，开始连接服务器\r\n");
 			ESP8266_Enable_MultipleId ( DISABLE );
 			sprintf((char*)TmpVar.srttmp,"%d.%d.%d.%d",gNetCtr.WiFiRmoteip[0],gNetCtr.WiFiRmoteip[1],gNetCtr.WiFiRmoteip[2],gNetCtr.WiFiRmoteip[3]); //把整数转换为字符串
 			sprintf((char*)g_tFlg.pString,"%d",gNetCtr.WiFiRemotePort); //把整数转换为字符串 
 			while ( !	ESP8266_Link_Server ( enumTCP, TmpVar.srttmp, (char*)g_tFlg.pString, Single_ID_0 ) );
-			printf("服务器连接成功,配置模块进入透传模式\r\n");
+			DBG_PRINTF("服务器连接成功,配置模块进入透传模式\r\n");
 			
 			while ( ! ESP8266_UnvarnishSend () );
-			printf ( "\r\n配置 ESP8266 完毕\r\n" );
+			DBG_PRINTF ( "\r\n配置 ESP8266 完毕\r\n" );
 			gNetCtr.WiFiStpSta = 1;
 			break;
 		case 1:
@@ -674,13 +674,13 @@ void ESP8266_StaTcpClient_UnvarnishTest ( void )
 				while ( ! ucsta );
 				if(ucsta == 4)
 				{
-					printf ( "\r\n正在重连热点和服务器 ......\r\n" );
+					DBG_PRINTF ( "\r\n正在重连热点和服务器 ......\r\n" );
 							
 					while ( ! ESP8266_JoinAP ((char*) Config.APName, (char*)Config.APPassword ) );			
 					sprintf((char*)TmpVar.srttmp,"%d.%d.%d.%d",gNetCtr.WiFiRmoteip[0],gNetCtr.WiFiRmoteip[1],gNetCtr.WiFiRmoteip[2],gNetCtr.WiFiRmoteip[3]); //把整数转换为字符串
 					sprintf((char*)g_tFlg.pString,"%d",gNetCtr.WiFiRemotePort); //把整数转换为字符串 
 					while ( !	ESP8266_Link_Server ( enumTCP, TmpVar.srttmp, (char*)g_tFlg.pString, Single_ID_0 ) );
-					printf ( "\r\n重连热点和服务器成功\r\n" );
+					DBG_PRINTF ( "\r\n重连热点和服务器成功\r\n" );
 					while ( ! ESP8266_UnvarnishSend () );		//模块进入透传模式
 
 				}

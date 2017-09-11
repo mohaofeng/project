@@ -10,18 +10,18 @@ void showdbg32hex(u32 *bf,u8 len)
 	u8 cnt;
 	for(cnt=0;cnt<len;cnt++)
 	{
-		printf("%x,",bf[cnt]);
+		DBG_PRINTF("%x,",bf[cnt]);
 	}
-	printf("\r\n");
+	DBG_PRINTF("\r\n");
 }
 void showdbg32dec(u32 *bf,u8 len)
 {
 	u8 cnt;
 	for(cnt=0;cnt<len;cnt++)
 	{
-		printf("%d,",bf[cnt]);
+		DBG_PRINTF("%d,",bf[cnt]);
 	}
-	printf("\r\n");
+	DBG_PRINTF("\r\n");
 }
 
 void showdbg8hex(u8 *bf,u8 len)
@@ -29,27 +29,27 @@ void showdbg8hex(u8 *bf,u8 len)
 	u8 cnt;
 	for(cnt=0;cnt<len;cnt++)
 	{
-		printf("%02x,",bf[cnt]);
+		DBG_PRINTF("%02x,",bf[cnt]);
 	}
-	printf("\r\n");
+	DBG_PRINTF("\r\n");
 }
 void showdbg16hex(u16 *bf,u8 len)
 {
 	u8 cnt;
 	for(cnt=0;cnt<len;cnt++)
 	{
-		printf("%x,",bf[cnt]);
+		DBG_PRINTF("%x,",bf[cnt]);
 	}
-	printf("\r\n");
+	DBG_PRINTF("\r\n");
 }
 void showdbg8dec(u8 *bf,u8 len)
 {
 	u8 cnt;
 	for(cnt=0;cnt<len;cnt++)
 	{
-		printf("%d,",bf[cnt]);
+		DBG_PRINTF("%d,",bf[cnt]);
 	}
-	printf("\r\n");
+	DBG_PRINTF("\r\n");
 }
 
 void GetSysSn(void){
@@ -152,7 +152,7 @@ void SysParmWrite(void)
 	
 //	if(ee_WriteBytes(wtbf, FLASH_STORE_BASE, FLASH_DAT_LEN)==0)
 //	{
-//		printf("系统参数写入失败\r\n");
+//		DBG_PRINTF("系统参数写入失败\r\n");
 //	}
 	
 	delay_ms(10);																							
@@ -274,124 +274,124 @@ void SysParmExplain(void)
 
 void SysParmPrint(void)
 {
- 	printf("读取系统参数---------------------------------:\r\n");	
-	printf("系统标志    		：%d\r\n",Config.tagflg);
-	printf("硬件版本号  		：%d\r\n",Config.hwver);
-	printf("软件版本号  		：%d\r\n",Config.swver);
-	printf("设备类型    		：%d\r\n",Config.DeviceType);
-	printf("设备ID      		：%d\r\n",Config.deviceid);
-	printf("登录密码    		：%d\r\n",Config.LoginKey);
-	printf("投币脉冲宽度    ：%d ms\r\n",Config.PlusWith);
-	printf("投币间隔时间		：%d ms\r\n",Config.PlusGas);
-	printf("开门持续时间    ：%d ms\r\n",Config.GateWith);
-	printf("开门间隔时间		：%d ms\r\n",Config.GateGas);
-	printf("待机回复时间		：%d ms\r\n",Config.PromptTim);
+ 	DBG_PRINTF("读取系统参数---------------------------------:\r\n");	
+	DBG_PRINTF("系统标志    		：%d\r\n",Config.tagflg);
+	DBG_PRINTF("硬件版本号  		：%d\r\n",Config.hwver);
+	DBG_PRINTF("软件版本号  		：%d\r\n",Config.swver);
+	DBG_PRINTF("设备类型    		：%d\r\n",Config.DeviceType);
+	DBG_PRINTF("设备ID      		：%d\r\n",Config.deviceid);
+	DBG_PRINTF("登录密码    		：%d\r\n",Config.LoginKey);
+	DBG_PRINTF("投币脉冲宽度    ：%d ms\r\n",Config.PlusWith);
+	DBG_PRINTF("投币间隔时间		：%d ms\r\n",Config.PlusGas);
+	DBG_PRINTF("开门持续时间    ：%d ms\r\n",Config.GateWith);
+	DBG_PRINTF("开门间隔时间		：%d ms\r\n",Config.GateGas);
+	DBG_PRINTF("待机回复时间		：%d ms\r\n",Config.PromptTim);
 
-	printf("联网方式	：");
+	DBG_PRINTF("联网方式	：");
 	switch(Config.NetMod)
 	{
 		case NET_RJ45:
-			printf("网线\r\n");
+			DBG_PRINTF("网线\r\n");
 			break;
 		case NET_WIFI:
-			printf("wi-fi\r\n");
+			DBG_PRINTF("wi-fi\r\n");
 			break;
 		case NET_GPRS:
-			printf("GPRS\r\n");
+			DBG_PRINTF("GPRS\r\n");
 			break;
 		case NET_2_4G:
-			printf("2.4G\r\n");
+			DBG_PRINTF("2.4G\r\n");
 			break;
 		default:
-			printf("未定义\r\n");
+			DBG_PRINTF("未定义\r\n");
 			break;
 	}
-	printf("开门信号			：");
+	DBG_PRINTF("开门信号			：");
 	switch(Config.GateSta)
 	{
 		case GATE_NO:
-			printf("常开\r\n");
+			DBG_PRINTF("常开\r\n");
 			break;
 		case GATE_NC:
-			printf("常闭\r\n");
+			DBG_PRINTF("常闭\r\n");
 			break;
 		default:
-			printf("未定义\r\n");
+			DBG_PRINTF("未定义\r\n");
 			break;
 	}
-	printf("投币口状态			");
+	DBG_PRINTF("投币口状态			");
 	switch(Config.ttlLe)
 	{
 		case TTL_NC:
-			printf("常闭\r\n");
+			DBG_PRINTF("常闭\r\n");
 			break;
 		case TTL_NO:
-			printf("常开\r\n");
+			DBG_PRINTF("常开\r\n");
 			break;
 		default:
-			printf("未定义\r\n");
+			DBG_PRINTF("未定义\r\n");
 			break;
 	}
-	printf("dhcp开关     	    ：");
+	DBG_PRINTF("dhcp开关     	    ：");
 	switch(Config.dhcpsw)
 	{
 		case DHCP_ON:
-			printf("<开>\r\n");
+			DBG_PRINTF("<开>\r\n");
 		  break;
 		case DHCP_OFF:
-			printf("<关>\r\n");
+			DBG_PRINTF("<关>\r\n");
 		  break;			
 		default:
-			printf("未定义\r\n");
+			DBG_PRINTF("未定义\r\n");
 			break;
 	}
-	printf("运行模式			：");
+	DBG_PRINTF("运行模式			：");
 	switch(Config.runmod)
 	{
 		case RunMod_KEYINPUT:
-			printf("按键消费模式  \r\n"); 
+			DBG_PRINTF("按键消费模式  \r\n"); 
 			break;
 		case RunMod_NORMAL_FIX:
-			printf("固定消费模式 \r\n"); 
+			DBG_PRINTF("固定消费模式 \r\n"); 
 			break;
 		case RunMod_NORMAL_DANGWEI:
-			printf("档位消费模式 \r\n"); 
+			DBG_PRINTF("档位消费模式 \r\n"); 
 			break;
 		case RunMod_CHECK:
-			printf("查询机模式 \r\n"); 
+			DBG_PRINTF("查询机模式 \r\n"); 
 			break;
 		case RunMod_SAVER_COIN:
-			printf("存币模式  \r\n"); 
+			DBG_PRINTF("存币模式  \r\n"); 
 			break;
 		case RunMod_SALE_COIN:
-			printf("售币模式  \r\n"); 
+			DBG_PRINTF("售币模式  \r\n"); 
 			break;
 		case RunMod_SALE_SAVER_COIN:
-			printf("存取一体模式 \r\n"); 
+			DBG_PRINTF("存取一体模式 \r\n"); 
 			break;
 		case RunMod_GATE_CTRL:
-			printf("道闸控制模式 \r\n"); 
+			DBG_PRINTF("道闸控制模式 \r\n"); 
 			break;
 		default:
-			printf("未定义模式\r\n"); 
+			DBG_PRINTF("未定义模式\r\n"); 
 			break;
 	}
 	
-	printf("服务器ip地址   		：%d.%d.%d.%d\r\n",Config.Rmoteip[0],Config.Rmoteip[1],Config.Rmoteip[2],Config.Rmoteip[3]);
-	printf("本机ip地址     		：%d.%d.%d.%d\r\n",Config.Localip[0],Config.Localip[1],Config.Localip[2],Config.Localip[3]);
-	printf("默认网关       		：%d.%d.%d.%d\r\n",Config.GateW[0],Config.GateW[1],Config.GateW[2],Config.GateW[3]);
-	printf("子网掩码       		：%d.%d.%d.%d\r\n",Config.Mass[0],Config.Mass[1],Config.Mass[2],Config.Mass[3]);
-	printf("端口号         		：%d\r\n",Config.RemotePort);
-	printf("消费额度值     		：%d,%d,%d,%d,%d\r\n",Config.DecMon[0],Config.DecMon[1],Config.DecMon[2],Config.DecMon[3],Config.DecMon[4]);	
-	printf("IC卡验证密码   		：0x%x,0x%x,0x%x,0x%x,0x%x,0x%x\r\n",Config.ICKey[0],Config.ICKey[1],Config.ICKey[2],Config.ICKey[3],Config.ICKey[4],Config.ICKey[5]);	
+	DBG_PRINTF("服务器ip地址   		：%d.%d.%d.%d\r\n",Config.Rmoteip[0],Config.Rmoteip[1],Config.Rmoteip[2],Config.Rmoteip[3]);
+	DBG_PRINTF("本机ip地址     		：%d.%d.%d.%d\r\n",Config.Localip[0],Config.Localip[1],Config.Localip[2],Config.Localip[3]);
+	DBG_PRINTF("默认网关       		：%d.%d.%d.%d\r\n",Config.GateW[0],Config.GateW[1],Config.GateW[2],Config.GateW[3]);
+	DBG_PRINTF("子网掩码       		：%d.%d.%d.%d\r\n",Config.Mass[0],Config.Mass[1],Config.Mass[2],Config.Mass[3]);
+	DBG_PRINTF("端口号         		：%d\r\n",Config.RemotePort);
+	DBG_PRINTF("消费额度值     		：%d,%d,%d,%d,%d\r\n",Config.DecMon[0],Config.DecMon[1],Config.DecMon[2],Config.DecMon[3],Config.DecMon[4]);	
+	DBG_PRINTF("IC卡验证密码   		：0x%x,0x%x,0x%x,0x%x,0x%x,0x%x\r\n",Config.ICKey[0],Config.ICKey[1],Config.ICKey[2],Config.ICKey[3],Config.ICKey[4],Config.ICKey[5]);	
 	
 	if(Config.NetMod == NET_WIFI)//wifi模式下有此参数
 	{
-	printf("ap名称				：%s\r\n",Config.APName);
-	printf("ap密码				：%s\r\n",Config.APPassword);
+	DBG_PRINTF("ap名称				：%s\r\n",Config.APName);
+	DBG_PRINTF("ap密码				：%s\r\n",Config.APPassword);
 	}
 		
-	printf("本机mac地址为		：%d:%d:%d:%d:%d:%d\r\n",Config.Mac[0],Config.Mac[1],Config.Mac[2],Config.Mac[3],Config.Mac[4],Config.Mac[5]);
+	DBG_PRINTF("本机mac地址为		：%d:%d:%d:%d:%d:%d\r\n",Config.Mac[0],Config.Mac[1],Config.Mac[2],Config.Mac[3],Config.Mac[4],Config.Mac[5]);
 }
 
 
@@ -406,7 +406,7 @@ void SysParmRestorDefault(void)
 	uint8_t i;
 
 #if MAIN_DBG >0	
-	printf("Restore factory defaults\r\n");
+	DBG_PRINTF("Restore factory defaults\r\n");
 #endif
 	Config.tagflg = DEFAULT_TAG_FLG;
 	
@@ -493,7 +493,7 @@ void SysParmSet(void)
 	SysParmExplain();		
 	if(DEFAULT_TAG_FLG != Config.tagflg)//mcu未初始化，设置默认,或者dec inc按键同时按下
 	{		
-		printf("新设备写入系统默认参数...\r\n");		
+		DBG_PRINTF("新设备写入系统默认参数...\r\n");		
 		SysParmRestorDefault();
 		SysParmWrite();
 

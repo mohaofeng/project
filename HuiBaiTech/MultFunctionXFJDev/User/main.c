@@ -1,22 +1,3 @@
-/**
-******************************************************************************
-* @file    			main.c
-* @author  			WIZnet Software Team
-* @version 			V1.0
-* @date    			2015-02-14
-* @brief   			用3.5.0版本库建的工程模板
-* @attention  	实验平台：秉火 iSO-V3 STM32 开发板 + 秉火W5500网络适配板
-*
-*               默认使用秉火开发板的SPI2接口
-*							
-*               内网测试，请保证W5500的IP与测试PC机在同一网段内，且不冲突
-*               如果是用网线跟PC机直连，请设置PC机本地连接地址IP为静态IP
-*
-* 实验平台:秉火 iSO-V3 STM32 开发板 
-* 论坛    :http://www.firebbs.cn
-* 淘宝    :https://fire-stm32.taobao.com
-******************************************************************************
-*/ 
 #include <stdio.h>
 #include <string.h>
 #include "stm32f10x.h"
@@ -40,7 +21,7 @@
 #include "dhcp.h"
 #include <printer.h>
 #include "FramePkg.h"
-#include "common.h"
+#include "./common/Common.h"
 
 #include "WT588D.H"
 #include "bsp_led.h"   

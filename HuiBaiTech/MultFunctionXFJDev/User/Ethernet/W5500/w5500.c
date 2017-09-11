@@ -12,6 +12,8 @@
 #include "w5500_conf.h"
 #include "w5500.h"
 #include "socket.h"
+#include "./common/Common.h"
+
 #ifdef __DEF_IINCHIP_PPP__
 #include "md5.h"
 #endif
@@ -30,7 +32,7 @@ void iinchip_init(void)
 {
   setMR( MR_RST );
 #ifdef __DEF_IINCHIP_DBG__
-  printf("MR value is %02x \r\n",IINCHIP_READ_COMMON(MR));
+  DBG_PRINTF("MR value is %02x \r\n",IINCHIP_READ_COMMON(MR));
 #endif
 }
 
@@ -302,7 +304,7 @@ void send_data_processing(SOCKET s, uint8 *data, uint16 len)
   uint32 addrbsb =0;
   if(len == 0)
   {
-    printf("CH: %d Unexpected1 length 0\r\n", s);
+    DBG_PRINTF("CH: %d Unexpected1 length 0\r\n", s);
     return;
   }
    
@@ -334,7 +336,7 @@ void recv_data_processing(SOCKET s, uint8 *data, uint16 len)
   
   if(len == 0)
   {
-    printf("CH: %d Unexpected2 length 0\r\n", s);
+    DBG_PRINTF("CH: %d Unexpected2 length 0\r\n", s);
     return;
   }
 
@@ -375,8 +377,8 @@ void socket_buf_init( uint8 * tx_size, uint8 * rx_size  )
           IINCHIP_WRITE( (Sn_RXMEM_SIZE(i)), rx_size[i]);
           
 #ifdef __DEF_IINCHIP_DBG__
-         printf("tx_size[%d]: %d, Sn_TXMEM_SIZE = %d\r\n",i, tx_size[i], IINCHIP_READ(Sn_TXMEM_SIZE(i)));
-         printf("rx_size[%d]: %d, Sn_RXMEM_SIZE = %d\r\n",i, rx_size[i], IINCHIP_READ(Sn_RXMEM_SIZE(i)));
+         DBG_PRINTF("tx_size[%d]: %d, Sn_TXMEM_SIZE = %d\r\n",i, tx_size[i], IINCHIP_READ(Sn_TXMEM_SIZE(i)));
+         DBG_PRINTF("rx_size[%d]: %d, Sn_RXMEM_SIZE = %d\r\n",i, rx_size[i], IINCHIP_READ(Sn_RXMEM_SIZE(i)));
 #endif
     SSIZE[i] = (int16)(0);
     RSIZE[i] = (int16)(0);

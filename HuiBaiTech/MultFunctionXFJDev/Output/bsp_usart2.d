@@ -42,5 +42,4 @@
 ..\..\output\bsp_usart2.o: ..\..\User\exti.h
 ..\..\output\bsp_usart2.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\bsp_usart2.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\bsp_usart2.o: ..\..\User\common.h
 ..\..\output\bsp_usart2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

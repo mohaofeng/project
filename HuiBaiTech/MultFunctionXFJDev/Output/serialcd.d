@@ -44,5 +44,4 @@
 ..\..\output\serialcd.o: ..\..\User\exti.h
 ..\..\output\serialcd.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\serialcd.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\serialcd.o: ..\..\User\common.h
 ..\..\output\serialcd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

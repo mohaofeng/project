@@ -45,5 +45,4 @@
 ..\..\output\socket.o: ..\..\User\exti.h
 ..\..\output\socket.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\socket.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\socket.o: ..\..\User\common.h
 ..\..\output\socket.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

@@ -27,3 +27,5 @@
 ..\..\output\dhcp.o: ..\..\User\Ethernet\Internet\dhcp.h
 ..\..\output\dhcp.o: ..\..\User\Ethernet\W5500\utility.h
 ..\..\output\dhcp.o: ..\..\User\Ethernet\W5500\w5500_conf.h
+..\..\output\dhcp.o: ..\..\User\./common/Common.h
+..\..\output\dhcp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

@@ -42,5 +42,4 @@
 ..\..\output\sysconfig.o: ..\..\User\exti.h
 ..\..\output\sysconfig.o: ..\..\User\./pvd/bsp_pvd.h
 ..\..\output\sysconfig.o: ..\..\User\./ESP8266/bsp_esp8266.h
-..\..\output\sysconfig.o: ..\..\User\common.h
 ..\..\output\sysconfig.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

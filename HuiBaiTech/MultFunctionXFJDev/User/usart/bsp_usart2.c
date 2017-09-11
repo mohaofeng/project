@@ -76,28 +76,6 @@ void USART2_Config(void)
 	//USART_ClearFlag(USART1, USART_FLAG_TC);     
 }
 
-/////重定向c库函数printf到USART2
-//int fputc(int ch, FILE *f)
-//{
-//		/* 发送一个字节数据到USART2 */
-//		USART_SendData(USART2, (uint8_t) ch);
-//		
-//		/* 等待发送完毕 */
-//		while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET);		
-//	
-//		return (ch);
-//}
-
-/////重定向c库函数scanf到USART2
-//int fgetc(FILE *f)
-//{
-//		/* 等待串口1输入数据 */
-//		while (USART_GetFlagStatus(USART2, USART_FLAG_RXNE) == RESET);
-
-//		return (int)USART_ReceiveData(USART2);
-//}
-
-
 
 void Uart2Sent(uint8_t ch)
 {

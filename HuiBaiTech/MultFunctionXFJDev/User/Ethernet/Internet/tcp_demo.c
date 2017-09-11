@@ -49,19 +49,19 @@ void ExpNetSta(void)
 	if(gNetCtr.tcp_sta_old != gNetCtr.tcp_sta_new)
 	{
 		if(TCP_WAIT_TO_SEND & gNetCtr.tcp_sta_new)
-			printf("有数据待发送\r\n");
+			DBG_PRINTF("有数据待发送\r\n");
 		if(TCP_CLOSED & gNetCtr.tcp_sta_new)
-			printf("tcp连接关闭\r\n");
+			DBG_PRINTF("tcp连接关闭\r\n");
 		if(TCP_INIT & gNetCtr.tcp_sta_new)
-			printf("tcp初始化\r\n");
+			DBG_PRINTF("tcp初始化\r\n");
 		if(TCP_CONNECTTING & gNetCtr.tcp_sta_new)
-			printf("tcp正在连接\r\n");
+			DBG_PRINTF("tcp正在连接\r\n");
 		if(TCP_CONNECTED & gNetCtr.tcp_sta_new)
-			printf("tcp已经链接\r\n");
+			DBG_PRINTF("tcp已经链接\r\n");
 		if(TCP_CLOSEING & gNetCtr.tcp_sta_new)
-			printf("tcp等待关闭\r\n");
+			DBG_PRINTF("tcp等待关闭\r\n");
 		if(TCP_RECV_DATA & gNetCtr.tcp_sta_new)
-			printf("tcp接收到数据\r\n");
+			DBG_PRINTF("tcp接收到数据\r\n");
 	}
 }
 /**
