@@ -1,0 +1,19 @@
+..\OBJ\hc595.o: ..\HARDWARE\HC595\HC595.C
+..\OBJ\hc595.o: ..\HARDWARE\HC595\HC595.H
+..\OBJ\hc595.o: ..\SYSTEM\sys\sys.h
+..\OBJ\hc595.o: ..\USER\stm32f10x.h
+..\OBJ\hc595.o: ..\CORE\core_cm3.h
+..\OBJ\hc595.o: C:\Keil for arm\ARM\ARMCC\bin\..\include\stdint.h
+..\OBJ\hc595.o: ..\USER\system_stm32f10x.h
+..\OBJ\hc595.o: ..\USER\stm32f10x_conf.h
+..\OBJ\hc595.o: ..\STM32F10x_FWLib\inc\stm32f10x_flash.h
+..\OBJ\hc595.o: ..\USER\stm32f10x.h
+..\OBJ\hc595.o: ..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
+..\OBJ\hc595.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\OBJ\hc595.o: ..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h
+..\OBJ\hc595.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\OBJ\hc595.o: ..\STM32F10x_FWLib\inc\stm32f10x_spi.h
+..\OBJ\hc595.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
+..\OBJ\hc595.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\OBJ\hc595.o: ..\STM32F10x_FWLib\inc\misc.h
+..\OBJ\hc595.o: ..\SYSTEM\delay\delay.h

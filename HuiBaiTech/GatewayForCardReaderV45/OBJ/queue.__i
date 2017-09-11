@@ -1,0 +1,5 @@
+-c --cpu Cortex-M3 -g -O2 --apcs=interwork --split_sections -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I..\USMART -I..\HARDWARE\SPI -I..\uIP-APP -I..\uIP-1.0\uip -I..\uIP-1.0\apps\webserver -I..\HARDWARE\ENC28J60 -I..\HARDWARE\TIMER -I..\HARDWARE\STMFLASH -I..\HARDWARE\NRF24L01 -I..\HARDWARE\WDG -I..\HARDWARE\STMFLASH 
+-I d:\Keil\ARM\RV31\INC 
+-I d:\Keil\ARM\CMSIS\Include 
+-I d:\Keil\ARM\Inc\ST\STM32F10x 
+-DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -o "..\OBJ\queue.o" --omf_browse "..\OBJ\queue.crf" --depend "..\OBJ\queue.d" "queue.c"

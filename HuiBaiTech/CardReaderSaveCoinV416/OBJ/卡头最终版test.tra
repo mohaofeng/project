@@ -1,0 +1,47 @@
+*** Creating Trace Output File '..\OBJ\卡头最终版test.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"..\obj\main.o"'
+### List of Objects: adding '"..\obj\stm32f10x_it.o"'
+### List of Objects: adding '"..\obj\system_stm32f10x.o"'
+### List of Objects: adding '"..\obj\framepkg.o"'
+### List of Objects: adding '"..\obj\queue.o"'
+### List of Objects: adding '"..\obj\spi.o"'
+### List of Objects: adding '"..\obj\24l01.o"'
+### List of Objects: adding '"..\obj\stmflash.o"'
+### List of Objects: adding '"..\obj\led.o"'
+### List of Objects: adding '"..\obj\rc522.o"'
+### List of Objects: adding '"..\obj\timerx.o"'
+### List of Objects: adding '"..\obj\beep.o"'
+### List of Objects: adding '"..\obj\wdg.o"'
+### List of Objects: adding '"..\obj\st7588.o"'
+### List of Objects: adding '"..\obj\delay.o"'
+### List of Objects: adding '"..\obj\sys.o"'
+### List of Objects: adding '"..\obj\usart.o"'
+### List of Objects: adding '"..\obj\core_cm3.o"'
+### List of Objects: adding '"..\obj\startup_stm32f10x_md.o"'
+### List of Objects: adding '"..\obj\misc.o"'
+### List of Objects: adding '"..\obj\stm32f10x_fsmc.o"'
+### List of Objects: adding '"..\obj\stm32f10x_gpio.o"'
+### List of Objects: adding '"..\obj\stm32f10x_rcc.o"'
+### List of Objects: adding '"..\obj\stm32f10x_spi.o"'
+### List of Objects: adding '"..\obj\stm32f10x_usart.o"'
+### List of Objects: adding '"..\obj\stm32f10x_flash.o"'
+### List of Objects: adding '"..\obj\stm32f10x_tim.o"'
+### List of Objects: adding '"..\obj\stm32f10x_iwdg.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 "..\obj\main.o" "..\obj\stm32f10x_it.o" "..\obj\system_stm32f10x.o" "..\obj\framepkg.o" "..\obj\queue.o" "..\obj\spi.o" "..\obj\24l01.o" "..\obj\stmflash.o" "..\obj\led.o" "..\obj\rc522.o" "..\obj\timerx.o" "..\obj\beep.o" "..\obj\wdg.o" "..\obj\st7588.o" "..\obj\delay.o" "..\obj\sys.o" "..\obj\usart.o" "..\obj\core_cm3.o" "..\obj\startup_stm32f10x_md.o" "..\obj\misc.o" "..\obj\stm32f10x_fsmc.o" "..\obj\stm32f10x_gpio.o" "..\obj\stm32f10x_rcc.o" "..\obj\stm32f10x_spi.o" "..\obj\stm32f10x_usart.o" "..\obj\stm32f10x_flash.o" "..\obj\stm32f10x_tim.o" "..\obj\stm32f10x_iwdg.o" 
+--strict --scatter "..\OBJ\卡头最终版test.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\卡头最终版test.map" -o ..\OBJ\卡头最终版test.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '..\OBJ\卡头最终版test.axf'
+### ADS-LD Command File: '..\OBJ\卡头最终版test.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '..\OBJ\卡头最终版test.lnp', Handle=0x000003AC
+### Writing '.lnp' file
+### ADS-LD Command file '..\OBJ\卡头最终版test.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

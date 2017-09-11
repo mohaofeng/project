@@ -1,0 +1,5 @@
+-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I..\HARDWARE\WKUP -I..\HARDWARE\SPI -I..\HARDWARE\NRF24L01 -I..\HARDWARE\STMFLASH -I..\HARDWARE\RFID -I..\HARDWARE\TIMER -I..\HARDWARE\HC595 -I..\HARDWARE\wt588d -I..\HARDWARE\BEEP -I..\HARDWARE\WDG -I..\HARDWARE\ST7588 
+-I "C:\Keil for arm\ARM\RV31\INC" 
+-I "C:\Keil for arm\ARM\CMSIS\Include" 
+-I "C:\Keil for arm\ARM\Inc\ST\STM32F10x" 
+-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o "..\OBJ\wt588d.o" --omf_browse "..\OBJ\wt588d.crf" --depend "..\OBJ\wt588d.d" "..\HARDWARE\wt588d\WT588D.c"

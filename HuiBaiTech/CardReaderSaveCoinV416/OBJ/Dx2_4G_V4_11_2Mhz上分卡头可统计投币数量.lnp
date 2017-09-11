@@ -1,0 +1,5 @@
+--cpu Cortex-M3 "..\obj\main.o" "..\obj\stm32f10x_it.o" "..\obj\system_stm32f10x.o" "..\obj\framepkg.o" "..\obj\queue.o" "..\obj\spi.o" "..\obj\24l01.o" "..\obj\stmflash.o" "..\obj\led.o" "..\obj\rc522.o" "..\obj\timerx.o" "..\obj\beep.o" "..\obj\wdg.o" "..\obj\lcd.o" "..\obj\st7565r.o" "..\obj\exti.o" "..\obj\delay.o" "..\obj\sys.o" "..\obj\usart.o" "..\obj\core_cm3.o" "..\obj\startup_stm32f10x_md.o" "..\obj\misc.o" "..\obj\stm32f10x_fsmc.o" "..\obj\stm32f10x_gpio.o" "..\obj\stm32f10x_rcc.o" "..\obj\stm32f10x_spi.o" "..\obj\stm32f10x_usart.o" "..\obj\stm32f10x_flash.o" "..\obj\stm32f10x_tim.o" "..\obj\stm32f10x_iwdg.o" "..\obj\stm32f10x_exti.o" "..\obj\stm32f10x_pwr.o" "..\obj\stm32f10x_bkp.o" 
+--strict --scatter "..\OBJ\Dx2_4G_V4_11_2Mhz上分卡头可统计投币数量.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Dx2_4G_V4_11_2Mhz上分卡头可统计投币数量.map" -o ..\OBJ\Dx2_4G_V4_11_2Mhz上分卡头可统计投币数量.axf

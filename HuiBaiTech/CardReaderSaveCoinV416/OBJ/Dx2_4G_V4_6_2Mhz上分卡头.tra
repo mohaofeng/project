@@ -1,0 +1,52 @@
+*** Creating Trace Output File '..\OBJ\Dx2_4G_V4_6_2Mhz上分卡头.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"..\obj\main.o"'
+### List of Objects: adding '"..\obj\stm32f10x_it.o"'
+### List of Objects: adding '"..\obj\system_stm32f10x.o"'
+### List of Objects: adding '"..\obj\framepkg.o"'
+### List of Objects: adding '"..\obj\queue.o"'
+### List of Objects: adding '"..\obj\spi.o"'
+### List of Objects: adding '"..\obj\24l01.o"'
+### List of Objects: adding '"..\obj\stmflash.o"'
+### List of Objects: adding '"..\obj\led.o"'
+### List of Objects: adding '"..\obj\rc522.o"'
+### List of Objects: adding '"..\obj\timerx.o"'
+### List of Objects: adding '"..\obj\beep.o"'
+### List of Objects: adding '"..\obj\wdg.o"'
+### List of Objects: adding '"..\obj\lcd.o"'
+### List of Objects: adding '"..\obj\st7565r.o"'
+### List of Objects: adding '"..\obj\exti.o"'
+### List of Objects: adding '"..\obj\delay.o"'
+### List of Objects: adding '"..\obj\sys.o"'
+### List of Objects: adding '"..\obj\usart.o"'
+### List of Objects: adding '"..\obj\core_cm3.o"'
+### List of Objects: adding '"..\obj\startup_stm32f10x_md.o"'
+### List of Objects: adding '"..\obj\misc.o"'
+### List of Objects: adding '"..\obj\stm32f10x_fsmc.o"'
+### List of Objects: adding '"..\obj\stm32f10x_gpio.o"'
+### List of Objects: adding '"..\obj\stm32f10x_rcc.o"'
+### List of Objects: adding '"..\obj\stm32f10x_spi.o"'
+### List of Objects: adding '"..\obj\stm32f10x_usart.o"'
+### List of Objects: adding '"..\obj\stm32f10x_flash.o"'
+### List of Objects: adding '"..\obj\stm32f10x_tim.o"'
+### List of Objects: adding '"..\obj\stm32f10x_iwdg.o"'
+### List of Objects: adding '"..\obj\stm32f10x_exti.o"'
+### List of Objects: adding '"..\obj\stm32f10x_pwr.o"'
+### List of Objects: adding '"..\obj\stm32f10x_bkp.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 "..\obj\main.o" "..\obj\stm32f10x_it.o" "..\obj\system_stm32f10x.o" "..\obj\framepkg.o" "..\obj\queue.o" "..\obj\spi.o" "..\obj\24l01.o" "..\obj\stmflash.o" "..\obj\led.o" "..\obj\rc522.o" "..\obj\timerx.o" "..\obj\beep.o" "..\obj\wdg.o" "..\obj\lcd.o" "..\obj\st7565r.o" "..\obj\exti.o" "..\obj\delay.o" "..\obj\sys.o" "..\obj\usart.o" "..\obj\core_cm3.o" "..\obj\startup_stm32f10x_md.o" "..\obj\misc.o" "..\obj\stm32f10x_fsmc.o" "..\obj\stm32f10x_gpio.o" "..\obj\stm32f10x_rcc.o" "..\obj\stm32f10x_spi.o" "..\obj\stm32f10x_usart.o" "..\obj\stm32f10x_flash.o" "..\obj\stm32f10x_tim.o" "..\obj\stm32f10x_iwdg.o" "..\obj\stm32f10x_exti.o" "..\obj\stm32f10x_pwr.o" "..\obj\stm32f10x_bkp.o" 
+--strict --scatter "..\OBJ\Dx2_4G_V4_6_2Mhz上分卡头.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Dx2_4G_V4_6_2Mhz上分卡头.map" -o ..\OBJ\Dx2_4G_V4_6_2Mhz上分卡头.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '..\OBJ\Dx2_4G_V4_6_2Mhz上分卡头.axf'
+### ADS-LD Command File: '..\OBJ\Dx2_4G_V4_6_2Mhz上分卡头.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '..\OBJ\Dx2_4G_V4_6_2Mhz上分卡头.lnp', Handle=0x000001EC
+### Writing '.lnp' file
+### ADS-LD Command file '..\OBJ\Dx2_4G_V4_6_2Mhz上分卡头.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

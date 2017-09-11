@@ -1,0 +1,16 @@
+---- DBG_PRINTF Matches (15 in 4 files) ----
+CmpDatprocess.c (user):		 DBG_PRINTF("串口1-->服务器：%s\r\n",gExtCodeBuff);
+CmpDatprocess.c (user):		//DBG_PRINTF("codeString is：%s\r\n",(char*)g_tFlg.VipIDString);  
+CmpDatprocess.c (user):	DBG_PRINTF("收到登录指令,x坐标为:%d,y坐标为:%d,前景色:%d,背景色:%d,字体大小:%d,消费额度:%d,待机字符为:%s",VipImfor.wIdexpos,VipImfor.wIdeypos,VipImfor.ucIdeFcolor,VipImfor.ucIdeBcolor,VipImfor.ucIdeFontsize,VipImfor.wDecNum,VipImfor.IdeShowStr);
+CmpDatprocess.c (user):	DBG_PRINTF("测试打印的内容为：%s\r\n",&pbuff[6]);
+CmpDatprocess.c (user):	 	//DBG_PRINTF("%s",gNetDwCmdBuff);
+CmpDatprocess.c (user)://	 DBG_PRINTF("%s",gNetUpCmpCmdBuf);
+CmpDatprocess.c (user):			DBG_PRINTF("网络已经断开\r\n");
+CmpDatprocess.c (user):		//DBG_PRINTF("%s",gExtTFTLCDCmdBuff);
+CmpDatprocess.c (user):					DBG_PRINTF("输入字符不符合规范，退出检查步骤\r\n");
+CmpDatprocess.c (user):				DBG_PRINTF("%d",tmpbuf[i]);
+CmpDatprocess.c (user):			DBG_PRINTF("未包含制定数量的字符\r\n");
+CmpDatprocess.c (user):		DBG_PRINTF("字符长度不正确\r\n");
+Common.h (user\common):#define DBG_PRINTF( fmt, ... )	NetPrintf( fmt, ##__VA_ARGS__ )
+Main.c (user):		DBG_PRINTF("上传扣费指令，会员id:%s",g_tFlg.VipIDString);
+Rc522.c (user)://				DBG_PRINTF("ic stringis:%s",g_tFlg.VipIDString);  
